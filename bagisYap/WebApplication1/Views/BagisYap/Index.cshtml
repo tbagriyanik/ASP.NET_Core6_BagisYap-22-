@@ -1,0 +1,18 @@
+﻿@model WebApplication1.Models.bagis
+@{
+    Layout = "_Layout";
+}
+<div class="m-5 p-5">
+    <h1>Bağış Yap</h1>
+    <div class="row">
+        <div class="col-4">
+            <form asp-action="Ekle">
+                <p><label>Adınız <input type="text" name="bagisci" placeholder="Adınızı giriniz" /></label></p>
+                <p><label>Miktar <input type="text" name="miktar" value="0" /> ₺</label></p>
+                <hr />
+                <p><label>Bağış Türü <select asp-for="bagisTuruID" class="form-control" asp-items="ViewBag.bagisTuruID"></select></label> </p>
+                <input type="submit" value="Gönder" />
+            </form>
+        </div>
+    </div>
+</div>

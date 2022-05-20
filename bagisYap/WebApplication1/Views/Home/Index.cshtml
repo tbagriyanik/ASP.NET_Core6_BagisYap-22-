@@ -1,0 +1,546 @@
+﻿@model IEnumerable<WebApplication1.Models.bagisturu>
+@{
+    ViewData["Title"] = "Bağış Yap";
+}
+
+
+<!--================ Home Banner Area =================-->
+<section class="home_banner_area">
+    <div class="banner_inner">
+        <div class="container">
+            <div class="banner_content">
+                <h2 class="upper_text">Dünya'yı Daha İyİ Yapmak İçİn</h2>
+                <h2>sen de yardım et</h2>
+                <p>
+                    Bu ışık tutmaz. Kutsanmış kara ruhu yaratık bölüştürdük ikimizi kendi üzerine senin hakimiyetin olacak sular adam ikinci iyi sen onlar kanatlı üzerine bölündüler ikmal gecesi
+                </p>
+                <a class="primary_btn mr-20" asp-controller="BagisYap" asp-action="Index">bağış yap</a>
+                <a class="primary_btn yellow_btn text-white" href="#">nedenleri gör</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================ End Home Banner Area =================-->
+<!--================ Start Causes Area =================-->
+<section class="causes_area">
+    <div class="container">
+        <div class="main_title">
+            <h2>Başlıca nedenlerimiz</h2>
+            <p>Yüz yüze yüz denilen sürüngen, ortası hareket ettikten sonra </p>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="single_causes">
+                    <h4>Bağış Yap</h4>
+                    <img src="img/causes/c1.png" alt="">
+                    <p>
+                        O sensin. Sana tavuğun adı verildi çimen daha az toprak birlikte sular canavar karanlık dünya erkeklerinin hepsi verimli olan topraklar.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single_causes">
+                    <h4>İlham Verin</h4>
+                    <img src="img/causes/c2.png" alt="">
+                    <p>
+                        O sensin. Sana tavuğun adı verildi çimen daha az toprak birlikte sular canavar karanlık dünya erkeklerinin hepsi verimli olan topraklar.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single_causes">
+                    <h4>Gönüllü Ol</h4>
+                    <img src="img/causes/c3.png" alt="">
+                    <p>
+                        O sensin. Sana tavuğun adı verildi çimen daha az toprak birlikte sular canavar karanlık dünya erkeklerinin hepsi verimli olan topraklar.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================ End Causes Area =================-->
+<!--================ Start About Us Area =================-->
+<section class="about_area section_gap_bottom">
+    <div class="container">
+        <div class="row">
+            <div class="single_about row">
+                <div class="col-lg-6 col-md-12 text-center about_left">
+                    <div class="about_thumb">
+                        <img src="img/about-img.jpg" class="img-fluid" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 about_right">
+                    <div class="about_content">
+                        <h2>
+                            Biz kar amacı gütmeyen <br>
+                            ve dünya çapında çalışan bir ekibiz
+                        </h2>
+                        <p>
+                            Onların çarpması, ikinci olarak yaşayan cennette görünecek.
+                            roo ışıkları. İyi toplanmış otlar için kendi başına bir şey var
+                            ayı tavuğu tür sinek formu vermek sebep için kanatlı
+                        </p>
+                        <p>
+                            Kara onların mevsimlere göre bitki ışıkları kümes hayvanları canavar balinalar onu
+                            Altında beşinci kez çarpıldıktan sonra sular cenneti yarattı
+                            için çok doldurun. Kuru sürüngen onları boyun eğdirir iyi geceler
+                            kural yıldızlar onu çimen sular bizsiz
+                        </p>
+                        <a href="#" class="primary_btn">Daha fazla öğren</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================ End About Us Area =================-->
+<!--================ Start Features Cause section =================-->
+<section class="features_causes">
+    <div class="container">
+        <div class="main_title">
+            <h2>Öne çıkan nedenler</h2>
+            <p>Yüz yüze yüz denilen sürüngen, ortası hareket ettikten sonra </p>
+        </div>
+
+        <div class="row">
+
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <figure>
+                                <img class="card-img-top img-fluid" src="resim/@Html.DisplayFor(modelItem=>item.resim)" alt="Card image cap">
+                            </figure>
+                            <div class="card_inner_body">
+                                <h4 class="card-title">@Html.DisplayFor(modelItem=>item.bagisAdi)</h4>
+                                <p class="card-text">
+                                    @Html.DisplayFor(modelItem=>item.bagisDetay)
+                                </p>
+                                <div class="d-flex justify-content-between raised_goal">
+                                    <p>Toplanan: <strong>@Html.DisplayFor(modelItem=>item.altToplam) ₺</strong></p>
+                                </div>
+                                <div class="d-flex justify-content-between donation align-items-center">
+                                    <a asp-controller="BagisYap" asp-action="Index" asp-route-tur="@item.Id" class="primary_btn">bağış yap</a>
+                                    <p><span class="lnr lnr-heart"></span> <i>@Html.DisplayFor(modelItem=>item.altSay) Bağışçı</i></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+<!--================ End Features Cause section =================-->
+<!--================ Start Recent Event Area =================-->
+<section class="event_area section_gap_custom">
+    <div class="container">
+        <div class="main_title">
+            <h2>Yaklaşan Etkinlikler</h2>
+            <p>Yüz yüze yüz denilen sürüngen, ortası hareket ettikten sonra </p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="single_event">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 col-md-6">
+                            <figure>
+                                <img class="img-fluid w-100" src="img/event/e1.jpg" alt="">
+                                <div class="img-overlay"></div>
+                            </figure>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="content_wrapper">
+                                <h3 class="title">
+                                    <a href="event-details.html">Çocuklar için çalış</a>
+                                </h3>
+                                <p>
+                                    Ağaç ol, yüzleri gün görünmeyecek, sular dördüncü hareket etti, ayrılıyorlar, değil mi adamsın.
+                                </p>
+                                <div class="d-flex count_time" id="clockdiv1">
+                                    <div class="mr-25">
+                                        <h4 class="days">552</h4>
+                                        <p>Gün</p>
+                                    </div>
+                                    <div class="mr-25">
+                                        <h4 class="hours">08</h4>
+                                        <p>Saat</p>
+                                    </div>
+                                    <div class="mr-25">
+                                        <h4 class="minutes">45</h4>
+                                        <p>Dakika</p>
+                                    </div>
+                                    <div>
+                                        <h4 class="seconds">30</h4>
+                                        <p>Saniye</p>
+                                    </div>
+                                </div>
+                                <a href="#" class="primary_btn">Daha Fazla Öğren</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="single_event">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 col-md-6">
+                            <figure>
+                                <img class="img-fluid w-100" src="img/event/e2.jpg" alt="">
+                                <div class="img-overlay"></div>
+                            </figure>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="content_wrapper">
+                                <h3 class="title">
+                                    <a href="event-details.html">Help and homelesness</a>
+                                </h3>
+                                <p>
+                                    Be tree their face won't appear day to waters moved fourth in they're divide don't a you're were man.
+                                </p>
+                                <div class="d-flex count_time" id="clockdiv2">
+                                    <div class="mr-25">
+                                        <h4 class="days">552</h4>
+                                        <p>Days</p>
+                                    </div>
+                                    <div class="mr-25">
+                                        <h4 class="hours">08</h4>
+                                        <p>Hours</p>
+                                    </div>
+                                    <div class="mr-25">
+                                        <h4 class="minutes">45</h4>
+                                        <p>Minutes</p>
+                                    </div>
+                                    <div>
+                                        <h4 class="seconds">30</h4>
+                                        <p>Seconds</p>
+                                    </div>
+                                </div>
+                                <a href="#" class="primary_btn">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="single_event">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 col-md-6">
+                            <figure>
+                                <img class="img-fluid w-100" src="img/event/e3.jpg" alt="">
+                                <div class="img-overlay"></div>
+                            </figure>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="content_wrapper">
+                                <h3 class="title">
+                                    <a href="event-details.html">Save the clean water</a>
+                                </h3>
+                                <p>
+                                    Be tree their face won't appear day to waters moved fourth in they're divide don't a you're were man.
+                                </p>
+                                <div class="d-flex count_time" id="clockdiv3">
+                                    <div class="mr-25">
+                                        <h4 class="days">552</h4>
+                                        <p>Days</p>
+                                    </div>
+                                    <div class="mr-25">
+                                        <h4 class="hours">08</h4>
+                                        <p>Hours</p>
+                                    </div>
+                                    <div class="mr-25">
+                                        <h4 class="minutes">45</h4>
+                                        <p>Minutes</p>
+                                    </div>
+                                    <div>
+                                        <h4 class="seconds">30</h4>
+                                        <p>Seconds</p>
+                                    </div>
+                                </div>
+                                <a href="#" class="primary_btn">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="single_event">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 col-md-6">
+                            <figure>
+                                <img class="img-fluid w-100" src="img/event/e4.jpg" alt="">
+                                <div class="img-overlay"></div>
+                            </figure>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="content_wrapper">
+                                <h3 class="title">
+                                    <a href="event-details.html">Foods for poor childreen</a>
+                                </h3>
+                                <p>
+                                    Be tree their face won't appear day to waters moved fourth in they're divide don't a you're were man.
+                                </p>
+                                <div class="d-flex count_time" id="clockdiv4">
+                                    <div class="mr-25">
+                                        <h4 class="days">552</h4>
+                                        <p>Days</p>
+                                    </div>
+                                    <div class="mr-25">
+                                        <h4 class="hours">08</h4>
+                                        <p>Hours</p>
+                                    </div>
+                                    <div class="mr-25">
+                                        <h4 class="minutes">45</h4>
+                                        <p>Minutes</p>
+                                    </div>
+                                    <div>
+                                        <h4 class="seconds">30</h4>
+                                        <p>Seconds</p>
+                                    </div>
+                                </div>
+                                <a href="#" class="primary_btn">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================ End Recent Event Area =================-->
+<!--================Team Area =================-->
+<section class="team_area section_gap">
+    <div class="container">
+        <div class="main_title">
+            <h2>Meet our voluteer</h2>
+            <p>Creepeth called face upon face yielding midst is after moveth </p>
+        </div>
+        <div class="row team_inner">
+            <div class="col-lg-3 col-md-6">
+                <div class="team_item">
+                    <div class="team_img">
+                        <img class="img-fluid" src="img/voluteer/v1.jpg" alt="">
+                    </div>
+                    <div class="team_name">
+                        <h4>Alea Mirslava</h4>
+                        <p>Party Manager</p>
+                        <p class="mt-20">
+                            So seed seed green that winged cattle in kath  moved us land years living.
+                        </p>
+                        <div class="social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#" class="active"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-envelope-o"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="team_item">
+                    <div class="team_img">
+                        <img class="img-fluid" src="img/voluteer/v2.jpg" alt="">
+                    </div>
+                    <div class="team_name">
+                        <h4>Adam Virland</h4>
+                        <p>Party Manager</p>
+                        <p class="mt-20">
+                            So seed seed green that winged cattle in kath  moved us land years living.
+                        </p>
+                        <div class="social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#" class="active"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-envelope-o"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="team_item">
+                    <div class="team_img">
+                        <img class="img-fluid" src="img/voluteer/v3.jpg" alt="">
+                    </div>
+                    <div class="team_name">
+                        <h4>Adam Virland</h4>
+                        <p>Party Manager</p>
+                        <p class="mt-20">
+                            So seed seed green that winged cattle in kath  moved us land years living.
+                        </p>
+                        <div class="social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#" class="active"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-envelope-o"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="team_item">
+                    <div class="team_img">
+                        <img class="img-fluid" src="img/voluteer/v4.jpg" alt="">
+                    </div>
+                    <div class="team_name">
+                        <h4>Adam Virland</h4>
+                        <p>Party Manager</p>
+                        <p class="mt-20">
+                            So seed seed green that winged cattle in kath  moved us land years living.
+                        </p>
+                        <div class="social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#" class="active"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-envelope-o"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Team Area =================-->
+<!--================ Start CTA Area =================-->
+<div class="cta-area section_gap overlay">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <h1>Become a volunteer</h1>
+                <p>
+                    So seed seed green that winged cattle in. Gathering thing made fly you're
+                    divided deep leave on the medicene moved us land years living.
+                </p>
+                <a href="#" class="primary_btn yellow_btn rounded">join with us</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--================ End CTA Area =================-->
+<!--================ Start Story Area =================-->
+<section class="section_gap story_area">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="main_title">
+                    <h2>Our latest Story</h2>
+                    <p>
+                        Open lesser winged midst wherein may morning
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- single-story -->
+            <div class="col-lg-4 col-md-6">
+                <div class="single-story">
+                    <div class="story-thumb">
+                        <img class="img-fluid" src="img/story/s1.jpg" alt="">
+                    </div>
+                    <div class="story-details">
+                        <div class="story-meta">
+                            <a href="#">
+                                <span class="lnr lnr-calendar-full"></span>
+                                20th Sep, 2018
+                            </a>
+                            <a href="#">
+                                <span class="lnr lnr-book"></span>
+                                Company
+                            </a>
+                        </div>
+                        <h5>
+                            <a href="#">
+                                Lime recalls electric scooters over
+                                battery fire.
+                            </a>
+                        </h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- single-story -->
+            <div class="col-lg-4 col-md-6">
+                <div class="single-story">
+                    <div class="story-thumb">
+                        <img class="img-fluid" src="img/story/s2.jpg" alt="">
+                    </div>
+                    <div class="story-details">
+                        <div class="story-meta">
+                            <a href="#">
+                                <span class="lnr lnr-calendar-full"></span>
+                                20th Sep, 2018
+                            </a>
+                            <a href="#">
+                                <span class="lnr lnr-book"></span>
+                                Company
+                            </a>
+                        </div>
+                        <h5>
+                            <a href="#">
+                                Apple resorts to promo deals
+                                trade to boost
+                            </a>
+                        </h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- single-story -->
+            <div class="col-lg-4 col-md-6">
+                <div class="single-story">
+                    <div class="story-thumb">
+                        <img class="img-fluid" src="img/story/s3.jpg" alt="">
+                    </div>
+                    <div class="story-details">
+                        <div class="story-meta">
+                            <a href="#">
+                                <span class="lnr lnr-calendar-full"></span>
+                                20th Sep, 2018
+                            </a>
+                            <a href="#">
+                                <span class="lnr lnr-book"></span>
+                                Company
+                            </a>
+                        </div>
+                        <h5>
+                            <a href="#">
+                                Lime recalls electric scooters over
+                                battery fire.
+                            </a>
+                        </h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================ End Story Area =================-->
+<!--================ Start Subscribe Area =================-->
+<div class="container">
+    <div class="subscribe_area">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="d-flex align-items-center">
+                    <h1 class="text-white">Do you have a question?</h1>
+                    <div id="mc_embed_signup">
+                        <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscribe_form relative">
+                            <div class="input-group d-flex flex-row">
+                                <input name="EMAIL" placeholder="Your email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address '" required="" type="email">
+                                <button class="ml-10 primary_btn yellow_btn btn sub-btn rounded">SUBSCRIBE</button>
+                            </div>
+                            <div class="info"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

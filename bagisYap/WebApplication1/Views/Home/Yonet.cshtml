@@ -1,0 +1,11 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<h1>Yönetim</h1>
+
+<hr />
+<a asp-controller="bagis" asp-action="Index">Bağışlar</a> <span class="badge badge-pill badge-success bg-success">@ViewData["say"]</span>
+<hr />
+<a asp-controller="bagisturus" asp-action="Index">Bağış Türleri</a>
+<hr />
